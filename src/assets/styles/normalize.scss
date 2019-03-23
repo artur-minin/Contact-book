@@ -1,3 +1,4 @@
+@import './vars.scss';
 /*
  * Includes legacy browser support IE6/7
  *
@@ -19,6 +20,7 @@ $legacy_browser_support: false !default;
 html {
   -ms-text-size-adjust: 100%; /* 1 */
   -webkit-text-size-adjust: 100%; /* 1 */
+  overflow-x: hidden;
   @if $legacy_browser_support {
     *font-size: 100%; /* 2 */
   }
@@ -112,7 +114,8 @@ a {
  */
 
 a {
-  &:active, &:hover {
+  &:active, &:hover, &:link, &:visited {
+    color: $black;
     outline: 0;
   };
 }
@@ -398,6 +401,36 @@ textarea {
   }
 }
 
+// Placeholder Stylization
+// Change Text Color
+body input::-webkit-input-placeholder, body textarea::-webkit-input-placeholder {color: $grey;}
+body input::-moz-placeholder, body textarea::-moz-placeholder {color: $grey;} /* Firefox 19+ */
+body input:-moz-placeholder, body textarea:-moz-placeholder {color: $grey;} /* Firefox 18- */
+body input::-ms-input-placeholder, body textarea::-ms-input-placeholder {color: $grey;}
+
+// If The Text Does Not Fit
+input[placeholder] {text-overflow:ellipsis;}
+input::-moz-placeholder {text-overflow:ellipsis;} 
+input:-moz-placeholder {text-overflow:ellipsis;} 
+input:-ms-input-placeholder {text-overflow:ellipsis;} 
+
+// Focus Effect
+body input::-webkit-input-placeholder, body textarea::-webkit-input-placeholder {opacity: 1; transition: opacity 0.3s ease;}
+body input::-moz-placeholder, body textarea::-moz-placeholder {opacity: 1; transition: opacity 0.3s ease;}
+body input:-moz-placeholder, body textarea:-moz-placeholder {opacity: 1; transition: opacity 0.3s ease;}
+body input:-ms-input-placeholder, body textarea:-ms-input-placeholder {opacity: 1; transition: opacity 0.3s ease;}
+body input:focus::-webkit-input-placeholder, body textarea:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+body input:focus::-moz-placeholder, body textarea:focus::-moz-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+body input:focus:-moz-placeholder, body textarea:focus:-moz-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+body input:focus:-ms-input-placeholder, body textarea:focus:-ms-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+
+// delete outline
+body input {
+  &:active, &:hover, &:focus {
+    outline: 0;
+    outline-offset: 0;
+  }
+}
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */

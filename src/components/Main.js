@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import { connect } from 'react-redux';
 import { fetchContacts } from '../actions/index';
@@ -13,15 +13,14 @@ class Main extends Component {
   componentDidMount() {
     const { fetchContacts } = this.props;
     const isEmpty = localStorage.getItem('contacts');
-
+    
+    // If the localStorage is empty, then we get data from the API
     if (!isEmpty) {
       fetchContacts();
     };
   };
 
   render() {
-    const { contacts } = this.props;
-    console.log('contactsSSSSS', contacts);
     return (
       <Switch>
         <Route path='/' exact component={Contacts} />
@@ -31,6 +30,7 @@ class Main extends Component {
   };
 };
 
+// Contact list from redux
 const mapStateToProps = ({ contacts }) => {
   return {
     contacts

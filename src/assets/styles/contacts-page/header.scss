@@ -1,0 +1,18 @@
+@import '../vars.scss';
+
+.contacts__header {
+  position: relative;
+  height: 15vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: $blueDark;
+
+  &-title {
+    font-size: 3rem;
+    font-weight: 900;
+    color: $white;
+  }
+}

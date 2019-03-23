@@ -1,0 +1,52 @@
+@import '../vars.scss';
+
+.contacts__controls {
+  position: relative;
+  height: 50px;
+  width: 90%;
+ // min-width: 320px;
+  min-width: 800px;
+  max-width: 800px;
+  margin: 4px 0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background: $grey;
+
+  &-sort {
+    height: 100%;
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+
+    &-sortByAlphabet {
+      height: 46px;
+      width: 46px;
+      background: url(../images/sort-default.svg);
+      background-repeat: no-repeat;
+      margin-bottom: 3px;
+      cursor: pointer;
+    }
+
+    &-onlyFavorites {
+      margin-bottom: 10px;
+      height: 30px;
+      width: 30px;
+      background: url(../images/star-filled.svg);
+      cursor: pointer;
+    }
+  }
+
+  &-search {
+    box-sizing: border-box;
+    padding: 5px 10px;
+    color: $grey;
+    background: $silver;
+    border: none;
+    border-radius: 5px;
+  }
+}

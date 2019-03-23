@@ -6,6 +6,7 @@ const contactsLoaded = (data) => {
   };
 };
 
+// If fe
 const contactsFailure = (err) => {
   return {
     payload: err,
@@ -14,11 +15,12 @@ const contactsFailure = (err) => {
 };
 
 
+
 const fetchContacts = () => (dispatch) => {
   fetch('http://demo.sibers.com/users')
     .then(res => res.json())
-    .then( data => dispatch(contactsLoaded(data)))
-    .catch( err => dispatch(contactsFailure(err)));
+    .then(data => dispatch(contactsLoaded(data)))
+    .catch(err => dispatch(contactsFailure(err)));
 };
 
 export {
