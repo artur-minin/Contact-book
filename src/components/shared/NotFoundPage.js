@@ -7,7 +7,7 @@ const NotFoundPage = ({ location }) => {
 
   return (
     <div className='notFound'>
-      <div className='notFound__text'>{`Page with the address "${pathname}" not found.`}</div>
+      <div className='notFound__text'>Page with the address "{pathname}" not found.</div>
     </div>
   );
 };

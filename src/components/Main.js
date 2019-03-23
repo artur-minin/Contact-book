@@ -5,8 +5,10 @@ import { fetchContacts } from '../actions/index';
 
 import { Route, Switch } from 'react-router-dom';
 
-import Contacts from './contacts-page/Contacts';
+import ContactsPage from './contacts-page/ContactsPage';
 import NotFoundPage from './shared/NotFoundPage';
+
+import MoreAboutContact from './contacts-page/MoreAboutContact';
 
 class Main extends Component {
 
@@ -21,9 +23,21 @@ class Main extends Component {
   };
 
   render() {
+    const { contacts } = this.props;
     return (
       <Switch>
-        <Route path='/' exact component={Contacts} />
+        <Route path='/' exact component={ContactsPage} />
+        {
+          contacts.map(contact => {
+            return (
+              <Route key={contact.name} path={`/${contact.id}`}
+                render={() => {
+                  return <MoreAboutContact id={contact.id} />
+                }}
+              />
+            )
+          })
+        }
         <Route component={NotFoundPage} />
       </Switch>
     );

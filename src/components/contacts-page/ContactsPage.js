@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import Header from './Header';
-import Controls from './Controls';
+import Header from './ContactsHeader';
+import Controls from './ContactsControls';
 import Contact from './Contact';
 
 class Contacts extends Component {
 
   render() {
     const {contacts} = this.props;
-    console.log('contacts', contacts);
     return (
       <div className='contacts'>
         <Header />
@@ -18,14 +17,15 @@ class Contacts extends Component {
         {
           contacts.map(contact => {
             return (
-              <Contact key={contact.name} avatar={contact.avatar}
+               <Contact key={contact.name} avatar={contact.avatar}
                                           name={contact.name}
                                           email={contact.email}
                                           phone={contact.phone}
                                           city={contact.address.city}
                                           website={contact.website}
-                                          isFavorite={contact.favorite} />
-            );
+                                          isFavorite={contact.favorite}
+                                          id={contact.id} /> 
+            )
           })
         }
       </div>

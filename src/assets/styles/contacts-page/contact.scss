@@ -43,12 +43,12 @@
     color: $blueDark;
 
     &-favorite {
-      width: 30px;
-      height: 30px;
       position: absolute;
       top: 10px;
       right: 10px;
-      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      background: url('../images/star-filled.svg');
     }
 
     &-name {
@@ -71,10 +71,6 @@
 .grey {
   font-weight: 100;
   color: $grey;
-}
-
-.favorite {
-  background: url('../images/star-filled.svg');
 }
 
 .not-favorite {
