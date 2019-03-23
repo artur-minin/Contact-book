@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
+import ThunkMiddleware from 'redux-thunk';
 import reducer from './reducers';
 
 // Logs the type of action
@@ -7,6 +8,6 @@ const logMiddleware = (store) => (next) => (action) => {
   return next(action)
 };
 
-const store = createStore(reducer, applyMiddleware(logMiddleware));
+const store = createStore(reducer, applyMiddleware(ThunkMiddleware, logMiddleware));
 
 export default store;
