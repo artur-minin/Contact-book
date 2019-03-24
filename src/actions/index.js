@@ -1,28 +1,48 @@
 
-const contactsLoaded = (data) => {
+const dataLoaded = (data) => {
   return {
     payload: data,
-    type: 'FETCH_CONTACTS_SUCCEEDED'
+    type: 'FETCH_DATA_SUCCEEDED'
   };
 };
 
-// If fe
-const contactsFailure = (err) => {
+const dataFailure = (error) => {
   return {
-    payload: err,
-    type: 'FETCH_CONTACTS_FAILURE'
+    payload: error,
+    type: 'FETCH_DATA_FAILURE'
   };
 };
 
+const fetchDataFromAPI = async (url) => {
+  try {
+    const response = await fetch(url);
+    return await response.json();
+  }
+  catch (error) {
+    throw new Error(error);
+  };
+};
 
-
-const fetchContacts = () => (dispatch) => {
-  fetch('http://demo.sibers.com/users')
-    .then(res => res.json())
-    .then(data => dispatch(contactsLoaded(data)))
-    .catch(err => dispatch(contactsFailure(err)));
+const getContacts = async (dispatch) => {
+  const contactsIsExist = localStorage.getItem('contacts');
+  
+  // If 'contacts' exist in localStorage
+  if (contactsIsExist) {
+    const data = JSON.parse(localStorage.getItem('contacts'));
+    dispatch(dataLoaded(data));
+  }
+  else {
+    try {
+      const data = await fetchDataFromAPI('http://demo.sibers.com/users');
+      localStorage.setItem('contacts', JSON.stringify(data));
+      dispatch(dataLoaded(data));
+    }
+    catch(error) {
+      dispatch(dataFailure(error));
+    };
+  };
 };
 
 export {
-  fetchContacts
+  getContacts
 };

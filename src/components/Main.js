@@ -1,29 +1,24 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { fetchContacts } from '../actions/index';
+import { getContacts } from '../actions/index';
 
 import { Route, Switch } from 'react-router-dom';
 
 import ContactsPage from './contacts-page/ContactsPage';
 import NotFoundPage from './shared/NotFoundPage';
-
 import MoreAboutContact from './contacts-page/MoreAboutContact';
 
 class Main extends Component {
 
   componentDidMount() {
-    const { fetchContacts } = this.props;
-    const isEmpty = localStorage.getItem('contacts');
-    
-    // If the localStorage is empty, then we get data from the API
-    if (!isEmpty) {
-      fetchContacts();
-    };
+    this.props.getContacts();
   };
 
   render() {
     const { contacts } = this.props;
+
     return (
       <Switch>
         <Route path='/' exact component={ContactsPage} />
@@ -44,7 +39,12 @@ class Main extends Component {
   };
 };
 
-// Contact list from redux
+Main.propTypes = {
+  getContacts: PropTypes.func.isRequired,
+  contacts: PropTypes.array.isRequired
+};
+
+
 const mapStateToProps = ({ contacts }) => {
   return {
     contacts
@@ -53,7 +53,7 @@ const mapStateToProps = ({ contacts }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchContacts: () => dispatch(fetchContacts())
+    getContacts: () => dispatch(getContacts)
   };
 };
 

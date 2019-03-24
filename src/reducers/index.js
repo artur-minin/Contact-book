@@ -1,25 +1,25 @@
 const initialState = {
   contacts: [],
-  error: null
-};
+  error: false
+}
 
 const reducer = (state = initialState, action = {}) => {
 
   switch (action.type) {
 
-    case 'FETCH_CONTACTS_SUCCEEDED':
-      return {
-        ...state,
-        error: null,
-        contacts: action.payload
-      };
-    
-    case 'FETCH_CONTACTS_FAILURE':
+    case 'FETCH_DATA_FAILURE':
       return {
         ...state,
         error: action.payload
       };
-    
+
+    case 'FETCH_DATA_SUCCEEDED':
+      return {
+        ...state,
+        error: false,
+        contacts: action.payload
+      };
+
     
     default:
       return state;

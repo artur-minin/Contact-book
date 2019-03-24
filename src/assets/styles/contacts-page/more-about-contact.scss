@@ -5,7 +5,7 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background: rgba(1,1,1, 0.5);
+    background: $grey;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -50,7 +50,7 @@
   }
 
   &__address-section {
-    width: 57%;
+    width: 70%;
     height: 20%;
     display: flex;
     flex-direction: column;
@@ -68,7 +68,7 @@
   }
 
   &__contacts-section {
-    width: 57%;
+    width: 70%;
     height: 35%;
     display: flex;
     flex-direction: column;
@@ -106,6 +106,6 @@
 }
 
 .description {
-  color: $black;
+  color: $grey;
   font-weight: 300;
 }

@@ -8,6 +8,6 @@ const logMiddleware = (store) => (next) => (action) => {
   return next(action)
 };
 
-const store = createStore(reducer, applyMiddleware(ThunkMiddleware, logMiddleware));
+const store = createStore(reducer, applyMiddleware(logMiddleware, ThunkMiddleware));
 
 export default store;
