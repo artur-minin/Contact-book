@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-const Contact = ({avatar, name, email, phone, city, website, isFavorite, id}) => {
+const Contact = ({ avatar, name, email, phone, address: { city } , website, favorite, id}) => {
 
   return (
     <div className='contact'>
       <img className='contact__photo' src={avatar} alt='avatar'/>
       <div className='contact__information'>
-        <div className={isFavorite ? 'contact__information-favorite' : 'contact__information-favorite'.concat(' not-favorite')} />
+        <div className={favorite ? 'contact__information-favorite' : 'contact__information-favorite'.concat(' not-favorite')} />
         <div className='contact__information-name'>{name}</div>
         <div className='contact__information-email'>
           <span className='grey'>email: </span>
@@ -38,9 +38,9 @@ Contact.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
+  address: PropTypes.object.isRequired,
   website: PropTypes.string.isRequired,
-  isFavorite: PropTypes.bool.isRequired,
+  favorite: PropTypes.bool.isRequired,
   id: PropTypes.number.isRequired
 };
 

@@ -32,14 +32,14 @@ const getContacts = async (dispatch) => {
     dispatch(dataLoaded(data));
   }
   else {
-    try {
-      const data = await fetchDataFromAPI('http://demo.sibers.com/users');
-      localStorage.setItem('contacts', JSON.stringify(data));
-      dispatch(dataLoaded(data));
-    }
-    catch(error) {
-      dispatch(dataFailure(error));
-    };
+    fetchDataFromAPI('http://demo.sibers.com/users')
+      .then(data => {
+        localStorage.setItem('contacts', JSON.stringify(data));
+        dispatch(dataLoaded(data));
+      })
+      .catch(error => {
+        dispatch(dataFailure(error));
+      });
   };
 };
 

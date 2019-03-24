@@ -86,7 +86,7 @@
   &__favorite {
     height: 50px;
     width: 50px;
-    background: url('../images/star-filled.svg');
+    background: url(../images/star-filled.svg);
     margin-left: 20px;
   }
 
@@ -102,7 +102,7 @@
 }
 
 .not-favorite {
-  background: url('../images/star-empty.svg');
+  background: url(../images/star-empty.svg);
 }
 
 .description {

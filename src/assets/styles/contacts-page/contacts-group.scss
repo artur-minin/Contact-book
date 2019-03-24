@@ -1,0 +1,17 @@
+@import '../vars.scss';
+
+.contacts__group {
+  height: 6vh;
+  width: 90%;
+ // min-width: 320px;
+  min-width: 800px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-bottom: 12px;
+  font-size: 2rem;
+  color: $blueDark;
+  border-bottom: 1px solid $blueDark;
+}
