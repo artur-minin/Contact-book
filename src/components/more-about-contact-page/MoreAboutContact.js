@@ -16,12 +16,12 @@ class MoreAboutContact extends Component {
       <div className='moreAboutContact-wrapper'>
         <div className='moreAboutContact'>
           <Link to='/' className='moreAboutContact__close'/>
-          <div className='moreAboutContact__main-section'>
+          <section className='moreAboutContact__main-section'>
             <img className='moreAboutContact__main-section-photo' src={avatar} alt='avatar' />
             <div className='moreAboutContact__main-section-name'>{name}</div>
             <div className={favorite ? 'moreAboutContact__favorite' : 'moreAboutContact__favorite'.concat(' not-favorite')} />
-          </div>
-          <div className='moreAboutContact__address-section'>
+          </section>
+          <section className='moreAboutContact__address-section'>
             <div className='moreAboutContact__address-section-title'>address</div>
             <div className='moreAboutContact__address-section-city'>
               <span className='description'>location: </span>
@@ -31,8 +31,8 @@ class MoreAboutContact extends Component {
               <span className='description'>street: </span>
               {address.streetA}, {address.streetD}
             </div>
-          </div>
-          <div className='moreAboutContact__contacts-section'>
+          </section>
+          <section className='moreAboutContact__contacts-section'>
             <div className='moreAboutContact__contacts-section-title'>contacts</div>
             <div className='moreAboutContact__contacts-section-email'>
               <span className='description'>email: </span>
@@ -50,7 +50,7 @@ class MoreAboutContact extends Component {
               <span className='description'>company: </span>
               {company.name}
             </div>
-          </div>
+          </section>
         </div>
       </div>
     ); 

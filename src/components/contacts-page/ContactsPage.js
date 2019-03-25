@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 
 import { connect } from 'react-redux';
 
+import sortByName from '../../utils/sort-by-name';
+
 import Header from './ContactsHeader';
 import Controls from './ContactsControls';
 import Group from './ContactsGroup';
@@ -10,26 +12,81 @@ import Contact from './Contact';
 
 class Contacts extends Component {
 
+  state = {
+    sortType: 'alphabetically',
+    onlyFavorites: false,
+    searchedValue: null
+  }
+
+  toggleFavorites = () => {
+    this.setState(prevState => {
+      return {
+        onlyFavorites: !prevState.onlyFavorites
+      }
+    })
+  }
+
+  changeSortType = (type) => {
+    this.setState({
+      sortType: type
+    })
+  }
+
+  handleSearch = (value) => {
+    this.setState({
+      searchedValue: value
+    })
+  }
+
   render() {
     const { contacts } = this.props;
-  
+    const { sortType, onlyFavorites, searchedValue } = this.state;
+
+    // Sort the list by the given criterion
+    let filtredContacts = contacts;
+
+    if (sortType) {
+      filtredContacts =
+        sortType === 'alphabetically'
+          ? contacts.sort((a, b) => sortByName(a, b, 'alphabet'))
+          : contacts.sort((a, b) => sortByName(a, b, 'reverse'));
+    }
+
+    // Show only favorite contacts
+    if (onlyFavorites) {
+      filtredContacts = filtredContacts.filter(contact => contact.favorite);
+    }
+
+    // Search
+    if (searchedValue) {
+      filtredContacts = filtredContacts
+        .filter(contact =>
+          contact.name.toLowerCase().includes(searchedValue.toLowerCase()),
+        )
+    }
+
+
     // Group by first letter
     let contactsObject = {};
 
-    contacts.forEach(contact => {
+    filtredContacts.forEach(contact => {
       const letter = contact.name.charAt(0).toUpperCase();
       if (contactsObject.hasOwnProperty(letter)) {
         contactsObject[letter] = [...contactsObject[letter], contact];
       }
       else {
         contactsObject[letter] = [contact];
-      };
-    });
+      }
+    })
 
     return (
       <div className='contacts'>
         <Header />
-        <Controls />
+        <Controls sortType={sortType}
+          onlyFavorites={onlyFavorites}
+          toggleFavorites={this.toggleFavorites}
+          changeSortType={this.changeSortType}
+          handleSearch={this.handleSearch} />
         {
           Object.keys(contactsObject).map(letter => (
             <Fragment key={letter}>
@@ -41,9 +98,9 @@ class Contacts extends Component {
           ))
         }
       </div>
-    );
-  };
-};
+    )
+  }
+}
 
 const mapStateToProps = ({ contacts }) => {
   return {
