@@ -425,8 +425,8 @@ body input:focus:-moz-placeholder, body textarea:focus:-moz-placeholder {opacity
 body input:focus:-ms-input-placeholder, body textarea:focus:-ms-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
 
 // delete outline
-body input {
-  &:active, &:hover, &:focus {
+body input, body button {
+  &:active, &:hover, &:active {
     outline: 0;
     outline-offset: 0;
   }

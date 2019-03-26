@@ -8,7 +8,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import ContactsPage from './contacts-page/ContactsPage';
 import NotFoundPage from './shared/NotFoundPage';
-import MoreAboutContact from './more-about-contact-page/MoreAboutContact';
+import MoreAboutContactPage from './more-about-contact-page/MoreAboutContactPage';
 
 class Main extends Component {
 
@@ -26,7 +26,7 @@ class Main extends Component {
           contacts.map(contact => {
             return (
               <Route key={contact.name} path={`/${contact.id}`}
-                     render={() => ( <MoreAboutContact id={contact.id} /> )}
+                     render={() => ( <MoreAboutContactPage id={contact.id} /> )}
               />
             )
           })

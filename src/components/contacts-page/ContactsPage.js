@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
@@ -15,7 +16,7 @@ class Contacts extends Component {
   state = {
     sortType: 'alphabetically',
     onlyFavorites: false,
-    searchedValue: null
+    searchedValue: ''
   }
 
   toggleFavorites = () => {
@@ -52,10 +53,12 @@ class Contacts extends Component {
           : contacts.sort((a, b) => sortByName(a, b, 'reverse'));
     }
 
+    
     // Show only favorite contacts
     if (onlyFavorites) {
       filtredContacts = filtredContacts.filter(contact => contact.favorite);
     }
+
 
     // Search
     if (searchedValue) {
@@ -100,6 +103,13 @@ class Contacts extends Component {
       </div>
     )
   }
+}
+
+Contacts.propTypes = {
+  contacts: PropTypes.array.isRequired,
+  sortType: PropTypes.string,
+  onlyFavorites: PropTypes.bool,
+  searchedValue: PropTypes.string
 }
 
 const mapStateToProps = ({ contacts }) => {

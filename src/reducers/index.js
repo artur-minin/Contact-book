@@ -19,6 +19,13 @@ const reducer = (state = initialState, action = {}) => {
         error: false,
         contacts: action.payload
       };
+    
+    case 'CHANGE_CONTACT':
+      return {
+        ...state,
+        error: false,
+        contacts: action.payload
+      }
 
     
     default:

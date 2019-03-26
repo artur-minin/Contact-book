@@ -1,31 +1,21 @@
 @import '../vars.scss';
 
-.moreAboutContact {
+.editContact {
   &-wrapper {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    background: $grey;
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    min-width: 800px;
+    max-width: 800px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    overflow: hidden;
+    border-radius: 5px;
+    background: $silver;
   }
 
-  position: relative;
-  height: 80%;
-  width: 80%;
-  min-width: 800px;
-  max-width: 800px;
-  border-radius: 5px;
-  background: $silver;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-
-  &__main-section {
+    &__main-section {
     position: relative;
     width: 100%;
     height: 30%;
@@ -99,6 +89,7 @@
     background: url(../images/star-filled.svg);
     background-repeat: no-repeat;
     margin-left: 20px;
+    cursor: pointer;
   }
 
   &__close {
@@ -111,7 +102,7 @@
     cursor: pointer;
   }
 
-  &__edit {
+  &__save {
     position: absolute;
     left: 40%;
     bottom: 0;
@@ -120,7 +111,7 @@
     padding: 0;
     border: none;
     border-radius: 5px;
-    background: $blueDark;
+    background: $green;
     font-size: 1.2rem;
     font-weight: 900;
     color: $white;
@@ -130,6 +121,50 @@
       transform: scale(1.1);
     }
   }
+
+  &__cancel {
+    position: absolute;
+    left: 55%;
+    bottom: 0;
+    width: 90px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 5px;
+    background: $red;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: $white;
+    transition: 0.3s;
+
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+
+}
+
+.input-big {
+  height: 60px;
+  width: 40%;
+  background: $white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $black;
+  border: none;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-left: 20px;
+}
+
+.input-small {
+  height: 27px;
+  width: 75%;
+  background: $white;
+  color: $blueDark;
+  border: none;
+  border-radius: 5px;
+  padding: 0 10px;
 }
 
 .not-favorite {
