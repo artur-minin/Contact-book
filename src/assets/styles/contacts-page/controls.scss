@@ -11,11 +11,12 @@
   border-radius: 5px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   align-items: center;
   background: $grey;
 
   &-sort {
+    position: absolute;
+    left: 30px;
     height: 100%;
     width: 15%;
     display: flex;
@@ -41,7 +42,27 @@
     }
   }
 
+  &-change-theme {
+    position: absolute;
+    left: 170px;
+    height: 30px;
+    width: 30px;
+    background: url(../images/light-theme.svg);
+    cursor: pointer;
+  }
+
+  &-add-contact {
+    position: absolute;
+    left: 40%;
+    height: 33px;
+    width: 33px;
+    background: url(../images/add-contact.svg);
+    cursor: pointer;
+  }
+
   &-search {
+    position: absolute;
+    right: 30px;
     box-sizing: border-box;
     padding: 5px 10px;
     color: $grey;

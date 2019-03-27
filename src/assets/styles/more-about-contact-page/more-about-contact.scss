@@ -1,6 +1,6 @@
 @import '../vars.scss';
 
-.moreAboutContact {
+.more-about-contact {
   &-wrapper {
     position: fixed;
     height: 100vh;
@@ -14,7 +14,7 @@
   }
 
   position: relative;
-  height: 80%;
+  height: 90%;
   width: 80%;
   min-width: 800px;
   max-width: 800px;
@@ -28,7 +28,7 @@
   &__main-section {
     position: relative;
     width: 100%;
-    height: 30%;
+    height: 35%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -109,26 +109,44 @@
     height: 20px;
     background: url(../images/close-icon.svg);
     cursor: pointer;
+    transition: 0.3s;
+
+    &:hover, &:focus {
+      width: 25px;
+      height: 25px;
+      transform: rotate(180deg);
+    }
   }
 
-  &__edit {
+  &__edit, &__delete {
     position: absolute;
     left: 40%;
     bottom: 0;
     width: 90px;
     height: 40px;
     padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     border: none;
     border-radius: 5px;
     background: $blueDark;
     font-size: 1.2rem;
     font-weight: 900;
     color: $white;
+    text-decoration: none;
     transition: 0.3s;
 
-    &:active {
+    &:hover, &:focus {
       transform: scale(1.1);
     }
+  }
+
+  &__delete {
+    left: 55%;
+    width: 150px;
+    background: $red;
   }
 }
 

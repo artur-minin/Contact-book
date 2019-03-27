@@ -49,8 +49,8 @@ class Contacts extends Component {
     if (sortType) {
       filtredContacts =
         sortType === 'alphabetically'
-          ? contacts.sort((a, b) => sortByName(a, b, 'alphabet'))
-          : contacts.sort((a, b) => sortByName(a, b, 'reverse'));
+        ? contacts.sort((current, next) => sortByName(current, next, 'alphabet'))
+        : contacts.sort((current, next) => sortByName(current, next, 'reverse'));
     }
 
     
@@ -82,14 +82,15 @@ class Contacts extends Component {
       }
     })
 
+
     return (
       <div className='contacts'>
         <Header />
         <Controls sortType={sortType}
-          onlyFavorites={onlyFavorites}
-          toggleFavorites={this.toggleFavorites}
-          changeSortType={this.changeSortType}
-          handleSearch={this.handleSearch} />
+                  onlyFavorites={onlyFavorites}
+                  toggleFavorites={this.toggleFavorites}
+                  changeSortType={this.changeSortType}
+                  handleSearch={this.handleSearch} />
         {
           Object.keys(contactsObject).map(letter => (
             <Fragment key={letter}>
@@ -99,7 +100,7 @@ class Contacts extends Component {
               }
             </Fragment>
           ))
-        }
+      }
       </div>
     )
   }

@@ -9,7 +9,9 @@ const Contact = ({ avatar, name, email, phone, address: { city } , website, favo
     <div className='contact'>
       <img className='contact__photo' src={avatar} alt='avatar'/>
       <div className='contact__information'>
-        <div className={favorite ? 'contact__information-favorite' : 'contact__information-favorite'.concat(' not-favorite')} />
+        <div className={  favorite
+                          ? 'contact__information-favorite'
+                          : 'contact__information-favorite'.concat(' not-favorite')} />
         <div className='contact__information-name'>{name}</div>
         <div className='contact__information-email'>
           <span className='grey'>email: </span>
@@ -28,18 +30,18 @@ const Contact = ({ avatar, name, email, phone, address: { city } , website, favo
           {city}
         </div>
       </div>
-      <Link to={`/${id}`} className='contact__more'>more...</Link>
+      <Link to={`/${id}/`} className='contact__more'>more...</Link>
     </div>
   );
 };
 
 Contact.propTypes = {
-  avatar: PropTypes.string.isRequired,
+  avatar: PropTypes.string,
   name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
-  address: PropTypes.object.isRequired,
-  website: PropTypes.string.isRequired,
+  email: PropTypes.string,
+  phone: PropTypes.string,
+  address: PropTypes.object,
+  website: PropTypes.string,
   favorite: PropTypes.bool.isRequired,
   id: PropTypes.number.isRequired
 };

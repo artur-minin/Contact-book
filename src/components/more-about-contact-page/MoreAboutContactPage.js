@@ -4,81 +4,75 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
+import { deleteContact } from '../../actions/index';
 
-import EditContact from '../edit-contact/EditContact';
 
 class MoreAboutContactPage extends Component {
 
-  state = {
-    editorVisible: false
-  }
-
-  toggleEditorVisible = () => {
-    this.setState(prevState => {
-      return {
-        editorVisible: !prevState.editorVisible
-      }
-    })
-  }
-
   render() {
-    const { editorVisible } = this.state;
-    const { id, contacts } = this.props;
+    const { id, contacts, deleteContact } = this.props;
 
     const contact = contacts.find(contact => id === contact.id);
     const { avatar, name, address, email, phone, website, company, favorite } = contact;
 
     return (
-      <div className='moreAboutContact-wrapper'>
-        <div className='moreAboutContact'>
-          <Link to='/' className='moreAboutContact__close'/>
-          <section className='moreAboutContact__main-section'>
-            <img className='moreAboutContact__main-section-photo' src={avatar} alt='avatar' />
-            <div className='moreAboutContact__main-section-name'>{name}</div>
-            <div className={favorite ? 'moreAboutContact__favorite' : 'moreAboutContact__favorite'.concat(' not-favorite')} />
-            <button className='moreAboutContact__edit' onClick={() => this.toggleEditorVisible()}>
+      <div className='more-about-contact-wrapper'>
+        <div className='more-about-contact'>
+          
+          <Link to='/' className='more-about-contact__close' />
+          
+          <section className='more-about-contact__main-section'>
+            <img className='more-about-contact__main-section-photo' src={avatar} alt='avatar' />
+            <div className='more-about-contact__main-section-name'>{name}</div>
+            <div className={  favorite
+                              ? 'more-about-contact__favorite'
+                              : 'more-about-contact__favorite'.concat(' not-favorite')} />
+            <Link to={`/${id}/edit`} className='more-about-contact__edit'>
               Edit
-            </button>
+            </Link>
+            <Link to='/' className='more-about-contact__delete'
+                  onClick={() => deleteContact(contacts, id)}>
+              Delete contact
+            </Link>
           </section>
-          <section className='moreAboutContact__address-section'>
-            <div className='moreAboutContact__address-section-title'>address</div>
-            <div className='moreAboutContact__address-section-city'>
+
+          <section className='more-about-contact__address-section'>
+            <div className='more-about-contact__address-section-title'>address</div>
+            <div className='more-about-contact__address-section-city'>
               <span className='description'>city: </span>
               {address.city}
             </div>
-            <div className='moreAboutContact__address-section-street'>
+            <div className='more-about-contact__address-section-street'>
               <span className='description'>street: </span>
               {address.streetA}
             </div>
-            <div className='moreAboutContact__address-section-apartment'>
+            <div className='more-about-contact__address-section-apartment'>
               <span className='description'>apartment: </span>
               {address.streetD}
             </div>
           </section>
-          <section className='moreAboutContact__contacts-section'>
-            <div className='moreAboutContact__contacts-section-title'>contacts</div>
-            <div className='moreAboutContact__contacts-section-email'>
+
+          <section className='more-about-contact__contacts-section'>
+            <div className='more-about-contact__contacts-section-title'>contacts</div>
+            <div className='more-about-contact__contacts-section-email'>
               <span className='description'>email: </span>
               {email}
             </div>
-            <div className='moreAboutContact__contacts-section-phone'>
+            <div className='more-about-contact__contacts-section-phone'>
               <span className='description'>phone: </span>
               {phone}
             </div>
-            <div className='moreAboutContact__contacts-section-website'>
+            <div className='more-about-contact__contacts-section-website'>
               <span className='description'>website: </span>
               <a className='description' href={`http://${website}`} target='_blank' rel='noopener noreferrer'>{website}</a>
             </div>
-            <div className='moreAboutContact__contacts-section-company'>
+            <div className='more-about-contact__contacts-section-company'>
               <span className='description'>company: </span>
               {company.name}
             </div>
           </section>
+          
         </div>
-        {
-          editorVisible ? <EditContact currentContact={contact}
-                                       toggleEditorVisible={this.toggleEditorVisible} /> : null
-        }
       </div>
     ); 
   };
@@ -95,4 +89,6 @@ const mapStateToProps = ({ contacts }) => {
   };
 };
 
-export default connect(mapStateToProps)(MoreAboutContactPage);
+const mapDispatchToProps = { deleteContact };
+
+export default connect(mapStateToProps, mapDispatchToProps)(MoreAboutContactPage);

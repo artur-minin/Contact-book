@@ -9,6 +9,8 @@ import { Route, Switch } from 'react-router-dom';
 import ContactsPage from './contacts-page/ContactsPage';
 import NotFoundPage from './shared/NotFoundPage';
 import MoreAboutContactPage from './more-about-contact-page/MoreAboutContactPage';
+import EditContact from './edit-contact/EditContact';
+import AddContactPage from './add-contact-page/AddContactPage';
 
 class Main extends Component {
 
@@ -23,14 +25,20 @@ class Main extends Component {
       <Switch>
         <Route path='/' exact component={ContactsPage} />
         {
-          contacts.map(contact => {
-            return (
-              <Route key={contact.name} path={`/${contact.id}`}
-                     render={() => ( <MoreAboutContactPage id={contact.id} /> )}
-              />
-            )
-          })
+          contacts.map(contact => (
+            <Route key={contact.name} exact path={`/${contact.id}/`}
+                   render={() => ( <MoreAboutContactPage id={contact.id} /> )}
+            /> )
+          )
         }
+        {
+          contacts.map(contact => (
+            <Route key={contact.name} exact path={`/${contact.id}/edit`}
+                   render={() => ( <EditContact id={contact.id} /> )}
+            /> )
+          )
+        }
+        <Route path='/add-contact' component={AddContactPage} />
         <Route component={NotFoundPage} />
       </Switch>
     );

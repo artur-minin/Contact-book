@@ -59,12 +59,25 @@
       font-weight: 600;
       color: $black;
     }
+
+    &-website > a {
+      color: $blueDark;
+
+      &:focus {
+        color: $violet;
+      }
+    }
   }
 
   &__more {
     position: absolute;
     bottom: 0px;
     right: 10px;
+    color: $black;
+
+    &:focus {
+        color: $violet;
+    }
   }
 }
 
