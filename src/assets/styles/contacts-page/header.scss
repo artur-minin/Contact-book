@@ -8,7 +8,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: $blueDark;
+  background: var(--headerBackground);
 
   &-title {
     font-size: 3rem;

@@ -86,21 +86,21 @@ class Contacts extends Component {
     return (
       <div className='contacts'>
         <Header />
-        <Controls sortType={sortType}
-                  onlyFavorites={onlyFavorites}
-                  toggleFavorites={this.toggleFavorites}
-                  changeSortType={this.changeSortType}
-                  handleSearch={this.handleSearch} />
-        {
-          Object.keys(contactsObject).map(letter => (
-            <Fragment key={letter}>
-              <Group groupBy={letter} />
-              {
-                contactsObject[letter].map(contact => <Contact key={contact.name} {...contact} />)
-              }
-            </Fragment>
-          ))
-      }
+          <Controls sortType={sortType}
+                    onlyFavorites={onlyFavorites}
+                    toggleFavorites={this.toggleFavorites}
+                    changeSortType={this.changeSortType}
+                    handleSearch={this.handleSearch} />
+          {
+            Object.keys(contactsObject).map(letter => (
+              <Fragment key={letter}>
+                <Group groupBy={letter} />
+                {
+                  contactsObject[letter].map(contact => <Contact key={contact.name} {...contact} />)
+                }
+              </Fragment>
+            ))
+          }
       </div>
     )
   }

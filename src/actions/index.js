@@ -1,5 +1,12 @@
 import sortById from '../utils/sort-by-id';
 
+const errorOccured = (error) => {
+  return {
+    payload: error,
+    type: 'ERROR_OCCURED'
+  }
+}
+
 const dataLoaded = (data) => {
   return {
     payload: data,
@@ -156,10 +163,21 @@ const deleteContact = (allContacts, id) => {
   }
 };
 
+// Change theme
+const changeTheme = (theme) => {
+  console.log('theme', theme);
+  return {
+    payload: theme,
+    type: 'CHANGE_THEME'
+  }
+}
+
 
 export {
+  errorOccured,
   getContacts,
   addContact,
   editContact,
-  deleteContact
+  deleteContact,
+  changeTheme
 };

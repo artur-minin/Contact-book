@@ -1,0 +1,41 @@
+@media (max-width: 950px) {
+
+  .add-contact {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+
+    &__main-section, &__address-section, &__contacts-section {
+      width: 90%;
+    }
+
+    &__contacts-section {
+      height: 30%;
+      width: 90%;
+    }
+
+    &-input {
+      width: 55%;
+    }
+
+    &__favorite {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+}
+
+@media (max-width: 550px) {
+
+  .add-contact {
+    &__title {   
+      font-size: 1.5rem;
+    }
+
+    &__favorite {
+      right: 10px;
+    }
+  }
+
+}

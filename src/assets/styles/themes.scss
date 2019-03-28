@@ -1,0 +1,25 @@
+@import './vars.scss';
+
+.App {
+  &-light {
+    --mainBackground: #fafafa;
+    --headerBackground: #003153;
+    --groupTextColor: #003153;
+    --groupBorderColor: #003153;
+    --contactTitleColor: #010101;
+    --contentBackground: #C0C0C0;
+    --contentTextColor: #003153;
+    --formSubtitleColor: #010101;
+  }
+
+  &-dark {
+    --mainBackground: #010101;
+    --headerBackground: #4B0082;
+    --groupTextColor: #4B0082;
+    --groupBorderColor: #4B0082;
+    --contactTitleColor: #4B0082;
+    --contentBackground: #708090;
+    --contentTextColor: #fafafa;
+    --formSubtitleColor: #4B0082;
+  }
+}

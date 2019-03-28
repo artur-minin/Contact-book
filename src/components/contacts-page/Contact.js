@@ -14,19 +14,19 @@ const Contact = ({ avatar, name, email, phone, address: { city } , website, favo
                           : 'contact__information-favorite'.concat(' not-favorite')} />
         <div className='contact__information-name'>{name}</div>
         <div className='contact__information-email'>
-          <span className='grey'>email: </span>
+          <span className='black-small'>email: </span>
           {email}
         </div>
         <div className='contact__information-phone'>
-          <span className='grey'>phone: </span>
+          <span className='black-small'>phone: </span>
           {phone}
         </div>
         <div className='contact__information-website'>
-          <span className='grey'>website: </span>
+          <span className='black-small'>website: </span>
           <a href={`http://${website}`} target='_blank' rel='noopener noreferrer'>{website}</a>
         </div>
         <div className='contact__information-city'>
-          <span className='grey'>city: </span>
+          <span className='black-small'>city: </span>
           {city}
         </div>
       </div>

@@ -1,0 +1,16 @@
+@import '../vars.scss';
+
+.error-boundary {
+  height: 100vh;
+  width: 100vw;
+  background: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__text {
+    font-size: 2rem;
+    font-weight: 900;
+    color: $black;
+  }
+}

@@ -19,28 +19,32 @@ class Main extends Component {
   };
 
   render() {
-    const { contacts } = this.props;
+    const { contacts, theme } = this.props;
 
     return (
-      <Switch>
-        <Route path='/' exact component={ContactsPage} />
-        {
-          contacts.map(contact => (
-            <Route key={contact.name} exact path={`/${contact.id}/`}
-                   render={() => ( <MoreAboutContactPage id={contact.id} /> )}
-            /> )
-          )
-        }
-        {
-          contacts.map(contact => (
-            <Route key={contact.name} exact path={`/${contact.id}/edit`}
-                   render={() => ( <EditContact id={contact.id} /> )}
-            /> )
-          )
-        }
-        <Route path='/add-contact' component={AddContactPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <div className={ theme === 'light'
+                                  ? 'App-light'
+                                  : 'App-dark'} >
+        <Switch>
+          <Route path='/' exact component={ContactsPage} />
+          {
+            contacts.map(contact => (
+              <Route key={contact.name} exact path={`/${contact.id}/`}
+                    render={() => ( <MoreAboutContactPage id={contact.id} /> )}
+              /> )
+            )
+          }
+          {
+            contacts.map(contact => (
+              <Route key={contact.name} exact path={`/${contact.id}/edit`}
+                    render={() => ( <EditContact id={contact.id} /> )}
+              /> )
+            )
+          }
+          <Route path='/add-contact' component={AddContactPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </div>
     );
   };
 };
@@ -51,9 +55,10 @@ Main.propTypes = {
 };
 
 
-const mapStateToProps = ({ contacts }) => {
+const mapStateToProps = ({ contacts, theme }) => {
   return {
-    contacts
+    contacts,
+    theme
   };
 };
 

@@ -27,13 +27,16 @@ class MoreAboutContactPage extends Component {
             <div className={  favorite
                               ? 'more-about-contact__favorite'
                               : 'more-about-contact__favorite'.concat(' not-favorite')} />
-            <Link to={`/${id}/edit`} className='more-about-contact__edit'>
-              Edit
-            </Link>
-            <Link to='/' className='more-about-contact__delete'
-                  onClick={() => deleteContact(contacts, id)}>
-              Delete contact
-            </Link>
+                              
+            <div className='more-about-contact__buttons'>                
+              <Link to={`/${id}/edit`} className='more-about-contact__edit'>
+                Edit
+              </Link>
+              <Link to='/' className='more-about-contact__delete'
+                    onClick={() => deleteContact(contacts, id)}>
+                Delete contact
+              </Link>
+            </div>  
           </section>
 
           <section className='more-about-contact__address-section'>

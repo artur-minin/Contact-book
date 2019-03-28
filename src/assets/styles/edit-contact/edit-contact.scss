@@ -6,37 +6,38 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background: $white;
+    background: var(--mainBackground);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
   }
 
   position: relative;
-  height: 90%;
-  width: 80%;
-  min-width: 800px;
+  height: 100%;
+  width: 100%;
+  min-width: 320px;
   max-width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   border-radius: 5px;
-  background: $silver;
+  background: var(--contentBackground);
   box-shadow: 4px 4px 10px rgba($black, 0.5);
 
   &__main-section {
     position: relative;
     width: 70%;
-    height: 35%;
+    min-width: 550px;
+    height: 40%;
+    min-height: 270px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
     font-size: 1.3rem;
-    color: $blueDark;
+    color: var(--contentTextColor);
     margin-top: 30px;
 
     &-photo {
@@ -51,6 +52,19 @@
     &-avatar {
       margin-top: 10px;
     }
+  }
+
+  &__buttons {
+    position: absolute;
+    left: 60%;
+    bottom: 3px;
+    transform: translateX(-50%);
+    height: 40px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;  
   }
 
   &__address-section {
@@ -68,7 +82,7 @@
     &-title {
       width: 100%;
       font-weight: 400;
-      color: $black;
+      color: var(--formSubtitleColor);
     }
 
     &-city, &-street, &-apartment {
@@ -84,17 +98,28 @@
     justify-content: center;
     align-items: flex-start;
     font-size: 1.3rem;
-    color: $blueDark;
+    color: var(--contentTextColor);
 
     &-title {
       width: 100%;
       font-weight: 400;
-      color: $black;
+      color: var(--formSubtitleColor);
     }
 
     &-email, &-phone, &-website, &-company {
       width: 100%;
     }
+  }
+
+  &-input {
+    height: 27px;
+    width: 75%;
+    background: $white;
+    font-weight: 300;
+    color: $black;
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
   }
 
   &__favorite {
@@ -127,9 +152,6 @@
   }
 
  &__save, &__cancel {
-    position: absolute;
-    left: 35%;
-    bottom: 0;
     width: 90px;
     height: 40px;
     padding: 0;
@@ -152,32 +174,8 @@
   }
 
   &__cancel {
-    left: 57%;
     background: $red;
   }
-}
-
-.input-big {
-  height: 60px;
-  width: 40%;
-  background: $white;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: $black;
-  border: none;
-  border-radius: 5px;
-  padding: 0 10px;
-  margin-left: 20px;
-}
-
-.input-small {
-  height: 27px;
-  width: 75%;
-  background: $white;
-  color: $blueDark;
-  border: none;
-  border-radius: 5px;
-  padding: 0 10px;
 }
 
 .not-favorite {
@@ -186,6 +184,6 @@
 }
 
 .description {
-  color: $grey;
+  color: $black;
   font-weight: 300;
 }

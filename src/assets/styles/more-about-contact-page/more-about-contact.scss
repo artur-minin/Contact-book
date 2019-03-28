@@ -5,31 +5,31 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background: $white;
+    background: var(--mainBackground);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
   }
 
   position: relative;
   height: 90%;
   width: 80%;
-  min-width: 800px;
+  min-width: 320px;
   max-width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   border-radius: 5px;
-  background: $silver;
+  background: var(--contentBackground);
   box-shadow: 4px 4px 10px rgba($black, 0.5);
 
   &__main-section {
     position: relative;
     width: 100%;
     height: 35%;
+    min-height: 240px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -44,10 +44,26 @@
 
     &-name {
       position: relative;
+      min-width: 250px;
+      text-align: center;
       font-size: 2.5rem;
       font-weight: 700;
+      color: var(--contentTextColor);
       margin-left: 20px;
     }
+  }
+
+  &__buttons {
+    position: absolute;
+    left: 60%;
+    bottom: 5px;
+    transform: translateX(-50%);
+    height: 40px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;  
   }
 
   &__address-section {
@@ -57,15 +73,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    font-size: 1.3rem;
-    color: $blueDark;
     border-bottom: 1px solid $black;
     padding-bottom: 25px;
+    font-size: 1.3rem;
+    color: var(--contentTextColor);
+    font-weight: 400;
 
     &-title {
       width: 100%;
-      font-weight: 400;
-      color: $black;
+      font-weight: 500;
+      color: var(--formSubtitleColor);
     }
 
     &-city, &-street, &-apartment {
@@ -81,16 +98,21 @@
     justify-content: center;
     align-items: flex-start;
     font-size: 1.3rem;
-    color: $blueDark;
+    color: var(--contentTextColor);
+    font-weight: 400;
 
     &-title {
       width: 100%;
-      font-weight: 400;
-      color: $black;
+      font-weight: 500;
+      color: var(--formSubtitleColor);
     }
 
     &-email, &-phone, &-website, &-company {
       width: 100%;
+    }
+
+    &-website > a {
+      color: var(--contentTextColor);
     }
   }
 
@@ -120,9 +142,6 @@
   }
 
   &__edit, &__delete {
-    position: absolute;
-    left: 40%;
-    bottom: 0;
     width: 90px;
     height: 40px;
     padding: 0;
@@ -132,7 +151,7 @@
     align-items: center;
     border: none;
     border-radius: 5px;
-    background: $blueDark;
+    background: $green;
     font-size: 1.2rem;
     font-weight: 900;
     color: $white;
@@ -145,7 +164,6 @@
   }
 
   &__delete {
-    left: 55%;
     width: 150px;
     background: $red;
   }
@@ -157,6 +175,6 @@
 }
 
 .description {
-  color: $grey;
+  color: $white;
   font-weight: 300;
 }

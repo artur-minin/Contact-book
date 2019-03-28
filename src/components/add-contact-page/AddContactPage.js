@@ -46,19 +46,19 @@ class AddContactPage extends Component {
 
           <h2 className='add-contact__title'>Add new contact</h2>
 
+          <div className={ favorite ? 'add-contact__favorite'
+                                    : 'add-contact__favorite'.concat(' not-favorite')}
+                           onClick={() => this.changeParameter('favorite', !favorite)} />
+
           <section className='add-contact__main-section'>
-            <div className={ favorite
-                             ? 'add-contact__favorite'
-                             : 'add-contact__favorite'.concat(' not-favorite')}
-                 onClick={() => this.changeParameter('favorite', !favorite)} />
             <div className='add-contact__main-section-name'>
               <span className='description'>name: </span>
-              <input className='input-small' type='text' defaultValue={name} placeholder='name'
+              <input className='add-contact-input' type='text' defaultValue={name} placeholder='name'
                      onChange={(event) => this.changeParameter('name', event.target.value)} />
             </div>     
             <div className='add-contact__main-section-avatar'>
               <span className='description'>avatar: </span>
-              <input className='input-small' defaultValue={avatar} placeholder='avatar url'
+              <input className='add-contact-input' defaultValue={avatar} placeholder='avatar url'
                      onChange={(event) => this.changeParameter('avatar', event.target.value)}/>
             </div>
           </section>
@@ -67,17 +67,17 @@ class AddContactPage extends Component {
             <div className='add-contact__address-section-title'>address</div>
             <div className='add-contact__address-section-city'>
               <span className='description'>city: </span>
-              <input className='input-small' type='text' defaultValue={city} placeholder='city'
+              <input className='add-contact-input' type='text' defaultValue={city} placeholder='city'
                      onChange={(event) => this.changeParameter('city', event.target.value)} />
             </div>
             <div className='add-contact__address-section-street'>
               <span className='description'>street: </span>
-              <input className='input-small' type='text' defaultValue={street} placeholder='street'
+              <input className='add-contact-input' type='text' defaultValue={street} placeholder='street'
                      onChange={(event) => this.changeParameter('street', event.target.value)} />
             </div>
             <div className='add-contact__address-section-apartment'>
               <span className='description'>apartment: </span>
-              <input className='input-small' type='text' defaultValue={apartment} placeholder='apartment'
+              <input className='add-contact-input' type='text' defaultValue={apartment} placeholder='apartment'
                      onChange={(event) => this.changeParameter('apartment', event.target.value)} />
             </div>
           </section>
@@ -86,33 +86,35 @@ class AddContactPage extends Component {
             <div className='add-contact__contacts-section-title'>contacts</div>
             <div className='add-contact__contacts-section-email'>
               <span className='description'>email: </span>
-              <input className='input-small' type='text' defaultValue={email} placeholder='email'
+              <input className='add-contact-input' type='text' defaultValue={email} placeholder='email'
                      onChange={(event) => this.changeParameter('email', event.target.value)} />
             </div>
             <div className='add-contact__contacts-section-phone'>
               <span className='description'>phone: </span>
-              <input className='input-small' type='text' defaultValue={phone} placeholder='phone'
+              <input className='add-contact-input' type='text' defaultValue={phone} placeholder='phone'
                      onChange={(event) => this.changeParameter('phone', event.target.value)} />
             </div>
             <div className='add-contact__contacts-section-website'>
               <span className='description'>website: </span>
-              <input className='input-small' type='text' defaultValue={website} placeholder='website'
+              <input className='add-contact-input' type='text' defaultValue={website} placeholder='website'
                      onChange={(event) => this.changeParameter('website', event.target.value)} />
             </div>
             <div className='add-contact__contacts-section-company'>
               <span className='description'>company: </span>
-              <input className='input-small' type='text' defaultValue={company} placeholder='company'
+              <input className='add-contact-input' type='text' defaultValue={company} placeholder='company'
                      onChange={(event) => this.changeParameter('company', event.target.value)} />
             </div>
           </section>
 
-          <Link to={`/${id}/`} className='add-contact__add-contact'
-                onClick={() => addContact(contacts, newContact)}>
-            Add contact
-          </Link>
+          <div className='add-contact__buttons'>
+            <Link to={`/${id}/`} className='add-contact__add-contact'
+                  onClick={() => addContact(contacts, newContact)}>
+              Add contact
+            </Link>
 
-          <Link to='/' className='add-contact__cancel'>Cancel</Link>
-
+            <Link to='/' className='add-contact__cancel'>Cancel</Link>
+          </div>
+          
         </div>
       </div>
     );

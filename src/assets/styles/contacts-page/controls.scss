@@ -4,9 +4,8 @@
   position: relative;
   height: 50px;
   width: 90%;
- // min-width: 320px;
-  min-width: 800px;
-  max-width: 800px;
+  min-width: 320px;
+  max-width: 1000px;
   margin: 4px 0;
   border-radius: 5px;
   display: flex;
@@ -19,6 +18,7 @@
     left: 30px;
     height: 100%;
     width: 15%;
+    min-width: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -44,7 +44,7 @@
 
   &-change-theme {
     position: absolute;
-    left: 170px;
+    left: calc(15% + 60px);
     height: 30px;
     width: 30px;
     background: url(../images/dark-theme.svg);
@@ -70,6 +70,10 @@
     border: none;
     border-radius: 5px;
   }
+}
+
+.dark {
+  background: url(../images/light-theme.svg);
 }
 
 .reverse {
