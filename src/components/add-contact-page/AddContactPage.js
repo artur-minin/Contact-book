@@ -51,15 +51,15 @@ class AddContactPage extends Component {
                              ? 'add-contact__favorite'
                              : 'add-contact__favorite'.concat(' not-favorite')}
                  onClick={() => this.changeParameter('favorite', !favorite)} />
-            <div>
-              <span className='description'>avatar: </span>
-              <input className='input-small' defaultValue={avatar} placeholder='avatar url'
-                     onChange={(event) => this.changeParameter('avatar', event.target.value)}/>
-            </div>
-            <div>
+            <div className='add-contact__main-section-name'>
               <span className='description'>name: </span>
               <input className='input-small' type='text' defaultValue={name} placeholder='name'
                      onChange={(event) => this.changeParameter('name', event.target.value)} />
+            </div>     
+            <div className='add-contact__main-section-avatar'>
+              <span className='description'>avatar: </span>
+              <input className='input-small' defaultValue={avatar} placeholder='avatar url'
+                     onChange={(event) => this.changeParameter('avatar', event.target.value)}/>
             </div>
           </section>
 
@@ -107,9 +107,10 @@ class AddContactPage extends Component {
           </section>
 
           <Link to={`/${id}/`} className='add-contact__add-contact'
-                onClick={() => addContact(contacts, newContact) }>
+                onClick={() => addContact(contacts, newContact)}>
             Add contact
           </Link>
+
           <Link to='/' className='add-contact__cancel'>Cancel</Link>
 
         </div>

@@ -27,7 +27,7 @@ const reducer = (state = initialState, action = {}) => {
         contacts: action.payload
       }
     
-    case 'CHANGE_CONTACT':
+    case 'EDIT_CONTACT':
       return {
         ...state,
         error: false,

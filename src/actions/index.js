@@ -85,8 +85,8 @@ const addContact = (allContacts, newContact) => {
 };
 
 
-// Change contact
-const changeContact = (allContacts, currentContact, changedProps) => {
+// Edit contact
+const editContact = (allContacts, currentContact, changedProps) => {
 
   // If the name field is empty - write the old value to it
   if (changedProps.name === '') {
@@ -94,7 +94,8 @@ const changeContact = (allContacts, currentContact, changedProps) => {
   }
   
   let { address, company } = currentContact;
-  const { name,
+  const { avatar,
+          name,
           email,
           phone,
           website,
@@ -108,7 +109,7 @@ const changeContact = (allContacts, currentContact, changedProps) => {
   address = { ...address, city, streetA, streetD };
   company.name = companyName;
 
-  const modifiedContact = { ...currentContact, address, company, name, email, phone, website, favorite };
+  const modifiedContact = { ...currentContact, address, company, avatar, name, email, phone, website, favorite };
 
   // Sort by id, since the new array is formed in ascending order of the element id
   const sortedContacts = allContacts.sort((current, next) => sortById(current, next, 'ascending'));
@@ -121,7 +122,7 @@ const changeContact = (allContacts, currentContact, changedProps) => {
 
   return {
     payload: newContactsArray,
-    type: 'CHANGE_CONTACT'
+    type: 'EDIT_CONTACT'
   }
 };
 
@@ -159,6 +160,6 @@ const deleteContact = (allContacts, id) => {
 export {
   getContacts,
   addContact,
-  changeContact,
+  editContact,
   deleteContact
 };

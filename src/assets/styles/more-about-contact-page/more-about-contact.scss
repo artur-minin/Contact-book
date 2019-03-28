@@ -5,9 +5,9 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background: $grey;
+    background: $white;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -18,12 +18,13 @@
   width: 80%;
   min-width: 800px;
   max-width: 800px;
-  border-radius: 5px;
-  background: $silver;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  border-radius: 5px;
+  background: $silver;
+  box-shadow: 4px 4px 10px rgba($black, 0.5);
 
   &__main-section {
     position: relative;

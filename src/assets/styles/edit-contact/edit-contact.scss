@@ -1,19 +1,20 @@
 @import '../vars.scss';
 
+
 .edit-contact {
   &-wrapper {
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background: $grey;
+    background: $white;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
   }
 
-  position: absolute;
+  position: relative;
   height: 90%;
   width: 80%;
   min-width: 800px;
@@ -24,28 +25,31 @@
   align-items: center;
   border-radius: 5px;
   background: $silver;
+  box-shadow: 4px 4px 10px rgba($black, 0.5);
 
   &__main-section {
     position: relative;
-    width: 100%;
+    width: 70%;
     height: 35%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    font-size: 1.3rem;
+    color: $blueDark;
     margin-top: 30px;
 
     &-photo {
+      position: absolute;
+      top: 10%;
+      left: 0;
       width: 150px;
       height: 150px;
       border-radius: 50%;
     }
 
-    &-name {
-      position: relative;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-left: 20px;
+    &-avatar {
+      margin-top: 10px;
     }
   }
 
@@ -94,11 +98,13 @@
   }
 
   &__favorite {
+    position: absolute;
+    top: 0;
+    right: 0;
     height: 50px;
     width: 50px;
     background: url(../images/star-filled.svg);
     background-repeat: no-repeat;
-    margin-left: 20px;
     cursor: pointer;
   }
 
@@ -122,7 +128,7 @@
 
  &__save, &__cancel {
     position: absolute;
-    left: 40%;
+    left: 35%;
     bottom: 0;
     width: 90px;
     height: 40px;
@@ -146,7 +152,7 @@
   }
 
   &__cancel {
-    left: 55%;
+    left: 57%;
     background: $red;
   }
 }

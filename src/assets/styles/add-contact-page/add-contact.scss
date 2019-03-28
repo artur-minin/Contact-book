@@ -5,7 +5,7 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background: $grey;
+    background: $white;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -24,6 +24,7 @@
   align-items: center;
   border-radius: 5px;
   background: $silver;
+  box-shadow: 4px 4px 10px rgba($black, 0.5);
 
   &__title {
     font-size: 2.5rem;
@@ -49,13 +50,6 @@
       width: 150px;
       height: 150px;
       border-radius: 50%;
-    }
-
-    &-name {
-      position: relative;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-left: 20px;
     }
   }
 
@@ -133,7 +127,7 @@
 
  &__add-contact, &__cancel {
     position: absolute;
-    left: 25%;
+    left: 55%;
     bottom: 10px;
     width: 90px;
     height: 40px;
@@ -157,7 +151,7 @@
   }
 
   &__add-contact {
-    left: 55%;
+    left: 25%;
     width: 150px;
     background: $green;
   }
